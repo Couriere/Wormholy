@@ -6,7 +6,7 @@
 //  Copyright © 2020 Wormholy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class ShareUtils {
 
@@ -23,7 +23,7 @@ final class ShareUtils {
         }
          
         let textShare = [text]
-        let customItem = CustomActivity(title: "Save to the desktop", image: UIImage(named: "activity_icon", in: WHBundle.getBundle(), compatibleWith: nil)) { (sharedItems) in
+        let customItem = CustomActivity(title: "Save to the desktop", image: UIImage(named: "activity_icon", in: Bundle.module, compatibleWith: nil)) { (sharedItems) in
              guard let sharedStrings = sharedItems as? [String] else { return }
             
             let appName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
