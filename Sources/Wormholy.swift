@@ -31,6 +31,11 @@ public class Wormholy: NSObject
         set { Storage.limit = newValue }
     }
 
+
+	public static func start() {
+		initializeAction
+	}
+
     @objc public static func swiftyLoad() {
         NotificationCenter.default.addObserver(forName: fireWormholy, object: nil, queue: nil) { (notification) in
             Wormholy.presentWormholyFlow()
@@ -121,13 +126,10 @@ public class Wormholy: NSObject
     }()
 }
 
-extension Wormholy: SelfAware {
-    
-    static func awake() {
-        initializeAction
-    }
+extension Wormholy {
     
     private static let initializeAction: Void = {
+		URLSessionConfiguration.configurationInitsSwizzle
         swiftyLoad()
         swiftyInitialize()
     }()
