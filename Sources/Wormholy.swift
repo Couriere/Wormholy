@@ -31,6 +31,12 @@ public class Wormholy: NSObject
         set { Storage.limit = newValue }
     }
 
+    /// Default filter for the search box
+    ///
+    @objc public static var defaultFilter: String? {
+        get { Storage.defaultFilter }
+        set { Storage.defaultFilter = newValue }
+    }
 
 	public static func start() {
 		initializeAction
@@ -126,7 +132,12 @@ public class Wormholy: NSObject
     }()
 }
 
+/// WormholyConstructor calls this to initialize library
 extension Wormholy {
+    
+    @objc static func applicationDidFinishLaunching() {
+        initializeAction
+    }
     
     private static let initializeAction: Void = {
 		URLSessionConfiguration.configurationInitsSwizzle

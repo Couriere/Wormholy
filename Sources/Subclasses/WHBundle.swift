@@ -8,14 +8,5 @@
 import UIKit
 
 class WHBundle: Bundle {
-    static func getBundle() -> Bundle{
-        let podBundle = Bundle(for: Wormholy.classForCoder())
-        if let bundleURL = podBundle.url(forResource: "Wormholy", withExtension: "bundle"){
-            if let bundle = Bundle(url: bundleURL) {
-                return bundle
-            }
-        }
-        
-        return Bundle(for: Wormholy.classForCoder())
-    }
+	static func getBundle() -> Bundle { .module }
 }
