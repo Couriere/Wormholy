@@ -16,8 +16,9 @@ let package = Package(
 		.target(
 			name: "Wormholy",
 			dependencies: [],
-			path: "Sources"),
-		.testTarget( name: "WormholyTests", dependencies: ["Wormholy"], path: "Tests" ),
+			path: "Sources",
+			exclude: [ "Models/Postman/Postman_demo_collection.json" ]
+		),
 	],
 	swiftLanguageVersions: [.v5]
 )
